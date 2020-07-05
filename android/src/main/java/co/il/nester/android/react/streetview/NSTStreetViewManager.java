@@ -61,6 +61,11 @@ public class NSTStreetViewManager extends SimpleViewManager<NSTStreetView> {
         return MapBuilder.of(
                 NSTStreetViewEvent.eventNameForType(NSTStreetViewEvent.ON_ERROR), MapBuilder.of("registrationName", NSTStreetViewEvent.eventNameForType(NSTStreetViewEvent.ON_ERROR)),
                 NSTStreetViewEvent.eventNameForType(NSTStreetViewEvent.ON_SUCCESS), MapBuilder.of("registrationName", NSTStreetViewEvent.eventNameForType(NSTStreetViewEvent.ON_SUCCESS))
+                
+                ////////////////////////////////                
+                // Modified by SL 2020-07-05
+                NSTStreetViewEvent.eventNameForType(NSTStreetViewEvent.ON_DID_MOVE_CAMERA), MapBuilder.of("registrationName", "onDidMoveCamera"),
+                ////////////////////////////////
         );
     }
 }

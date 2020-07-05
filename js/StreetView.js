@@ -35,6 +35,7 @@ const propTypes = {
 
 	// Modified by SL 2020-07-04
 	streetNamesHidden: PropTypes.bool,
+	onDidMoveCamera: PropTypes.func,
 };
 
 class StreetView extends React.Component {
@@ -54,6 +55,7 @@ const cfg = {
     nativeOnly: {
         onError: true,
         onSuccess: true,
+        onDidMoveCamera: true,
     }
 };
 

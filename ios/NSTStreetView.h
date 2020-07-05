@@ -13,4 +13,9 @@
 @property (nonatomic,copy) RCTDirectEventBlock onError;
 @property (nonatomic,copy) RCTDirectEventBlock onSuccess;
 
+///////////////////////////
+// Modified by SL 2020-07-05
+@property (nonatomic,copy) RCTDirectEventBlock onDidMoveCamera;
+///////////////////////////
+
 @end
