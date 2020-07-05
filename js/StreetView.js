@@ -31,7 +31,10 @@ const propTypes = {
 	heading: PropTypes.number,
 
 	onError: PropTypes.func,
-	onSuccess: PropTypes.func
+	onSuccess: PropTypes.func,
+
+	// Modified by SL 2020-07-04
+	streetNamesHidden: PropTypes.bool,
 };
 
 class StreetView extends React.Component {

@@ -26,6 +26,9 @@ import android.content.Context;
 
 public class NSTStreetView extends StreetViewPanoramaView implements OnStreetViewPanoramaReadyCallback {
 
+    // Modified by SL 2020-07-04
+    public Boolean enableStreetNames = false;
+
     private StreetViewPanorama panorama;
     private Boolean allGesturesEnabled = true;
     private LatLng coordinate = null;
@@ -67,6 +70,9 @@ public class NSTStreetView extends StreetViewPanoramaView implements OnStreetVie
 
         this.panorama = panorama;
         this.panorama.setPanningGesturesEnabled(allGesturesEnabled);
+
+        // Modified by SL 2020-07-04
+        this.panorama.setStreetNamesEnabled(enableStreetNames);
 
         final EventDispatcher eventDispatcher = ((ReactContext) getContext())
                 .getNativeModule(UIManagerModule.class).getEventDispatcher();

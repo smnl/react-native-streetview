@@ -33,6 +33,14 @@ public class NSTStreetViewManager extends SimpleViewManager<NSTStreetView> {
         return new NSTStreetView(themedReactContext);
     }
 
+    ///////////////////////////////
+    // Modified by SL 2020-07-04
+    @ReactProp(name = "streetNamesHidden", defaultBoolean = false)
+    public void setStreetNamesHidden(NSTStreetView view, boolean streetNamesHidden) {
+        view.enableStreetNames = !streetNamesHidden;
+    }
+    ///////////////////////////////
+
     @ReactProp(name = "allGesturesEnabled", defaultBoolean = false)
     public void setAllGesturesEnabled(NSTStreetView view, boolean allGesturesEnabled) {
         view.setAllGesturesEnabled(allGesturesEnabled);
