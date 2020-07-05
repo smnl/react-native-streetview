@@ -28,4 +28,29 @@
         _onSuccess(@{@"coordinate":coord});
     }
 }
+
+///////////////////////////
+// Modified by SL 2020-07-05
+- (void)panoramaView:(GMSPanoramaView *)panoramaView didMoveCamera:(GMSPanoramaCamera *)camera {
+	if (_onDidMoveCamera) {
+		NSDictionary *cameraDict = @{
+			// @"orientation": @{
+			// 		@"heading":@(camera.orientation.heading),
+			// 		@"pitch":@(camera.orientation.pitch),
+			// },
+			@"heading":@(camera.orientation.heading),
+			@"pitch":@(camera.orientation.pitch),
+			@"FOV":@(camera.FOV),
+			@"zoom":@(camera.zoom)
+		};
+		
+		_onDidMoveCamera(@{@"camera":cameraDict});
+	}
+}
+
+- (void)panoramaViewDidStartRendering:(GMSPanoramaView *)panoramaView {
+	// NOTE: This is sometimes called just when panning around, so do not black out view here
+}
+///////////////////////////
+
 @end

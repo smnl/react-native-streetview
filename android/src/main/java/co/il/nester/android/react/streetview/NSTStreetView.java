@@ -24,10 +24,16 @@ import com.google.android.gms.maps.model.StreetViewPanoramaLocation;
 
 import android.content.Context;
 
+///////////////////////////////
+// Modified by SL 2020-07-05
+// import com.facebook.react.bridge.WritableNativeMap;
+// import com.facebook.react.common.MapBuilder;
+///////////////////////////////
+
 public class NSTStreetView extends StreetViewPanoramaView implements OnStreetViewPanoramaReadyCallback {
 
     // Modified by SL 2020-07-04
-    public Boolean enableStreetNames = false;
+    public Boolean enableStreetNames = true;
 
     private StreetViewPanorama panorama;
     private Boolean allGesturesEnabled = true;
@@ -85,6 +91,20 @@ public class NSTStreetView extends StreetViewPanoramaView implements OnStreetVie
                             new NSTStreetViewEvent(getId(), NSTStreetViewEvent.ON_ERROR)
                     );
                 }
+                /////////////////////////////
+                // Modified by SL 2020-07-05                
+                WritableMap cameraMap = Arguments.createMap();
+                cameraMap.putDouble("heading", (double)streetViewPanoramaCamera.bearing);
+                cameraMap.putDouble("pitch", (double)streetViewPanoramaCamera.tilt);
+                cameraMap.putDouble("zoom", (double)streetViewPanoramaCamera.zoom);
+
+                WritableMap eventMap = Arguments.createMap();
+                eventMap.putMap("camera", cameraMap);
+
+                eventDispatcher.dispatchEvent(
+                  new NSTStreetViewEvent(getId(), NSTStreetViewEvent.ON_DID_MOVE_CAMERA, eventMap)
+                );
+                ///////////////////////////////
             }
         });
 

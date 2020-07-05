@@ -39,6 +39,7 @@ RCT_CUSTOM_VIEW_PROPERTY(heading, CLLocationDegrees, NSTStreetView) {
 ///////////////////////////
 // Modified by SL 2020-07-04
 RCT_EXPORT_VIEW_PROPERTY(streetNamesHidden, BOOL);
+RCT_EXPORT_VIEW_PROPERTY(onDidMoveCamera, RCTDirectEventBlock);
 ///////////////////////////
 
 RCT_EXPORT_VIEW_PROPERTY(allGesturesEnabled, BOOL)
